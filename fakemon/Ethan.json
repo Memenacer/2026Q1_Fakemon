@@ -17,15 +17,20 @@
   "moves": [
 
    
+{
+  "id": "move_one",
+  "name": "Head Bash",
+  "desc": "Bash Head.",
+  "speed": "slow",
+  "damage": [1, 676],
+  "statuses": [
     {
-      "id": "move_one",
-      "name": "😵 Head Bash",
-      "desc": "Crush their head.",
-      "speed": "slow",
-      "damage": [1,124215],
-      "status": "Blunt Force Trauma",
-      "statusChance": 0.8
-    },
+      "status": "statdwn",
+      "statusChance": 1,
+      "statTarget": "speed"
+    }
+  ]
+},
 
    
     {
