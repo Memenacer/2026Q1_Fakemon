@@ -1,9 +1,9 @@
 {
   "id": "yourfakemon",
-  "name": "bubble pop electric",
-  "createdBy": "Dylan kevin lange",
-  "emoji": "⚡",
-  "type": "Fire",
+  "name": "naoya zenin",
+  "createdBy": "Dylan lange",
+  "emoji": "⚡♂",
+  "type": "normal",
 
   "hp": 85,
   "power": 75,
@@ -18,7 +18,7 @@
     {
       "id": "move_one",
       "name": "quick frame",
-      "desc": "bubble pop electric grab his oppenment and turns them into a frame and punches through them",
+      "desc": "naoya grab his oppenment and turns them into a frame and punches through them",
       "speed": "medium",
       "damage": [14, 20],
       "status": "paralyze",
@@ -37,8 +37,8 @@
 
     {
       "id": "move_three",
-      "name": "you use a hidden cursed tool to stab the oppenment near you",
-      "desc": "Restore 50 HP.",
+      "name": "bleedout",
+      "desc": "you use a hidden cursed tool to stab the oppenment near you",
       "speed": "medium",
       "damage": [15, 25],
       "status": null,
@@ -48,11 +48,11 @@
     {
       "id": "move_four",
       "name": "domain exapansion, time cell moon palace",
-      "desc": "Creates a barrier around himself where people cant escape from where your cursed techniqe hits everyone in it, unless you copy his position while in the domain parts of your body become frames and break, this can range from your whole body to the cells on your skin.",
+      "desc": "Creates a barrier around himself where people cant escape from where your cursed techniqe hits everyone in it, unless you dont move while in the domain parts of your body become frames and break, this can range from your whole body to the cells on your skin.",
       "speed": "medium",
-      "damage": [0, 85],
-      "status": "confuse",
-      "statusChance": 1.0
+      "damage": [0, 65],
+      "status": "poison",
+      "statusChance": .5
     }
 
   ]
