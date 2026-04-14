@@ -44,7 +44,7 @@
       "name":         "📈 Power Up",
       "desc":         "Sharply raises your own ATK.",
       "speed":        "fast",
-      "damage": [0, 0],
+      "damage": [0, 1],
       "status":       "statup",
       "statusChance": 1.0,
       "statTarget":   "atk"
@@ -54,14 +54,14 @@
       "name":         "📉 Cinder Smoke",
       "desc":         "Thick smoke clouds the enemy's vision.",
       "speed":        "medium",
-      "damage": [0, 0],
+      "damage": [0, 2],
       "status":       "statdwn",
       "statusChance": 1.0,
       "statTarget":   "speed"
     },
     {
       "id":    "move_six",
-      "name":  "😵 Chaos Breath",
+      "name":  "😵 Pepper spray",
       "desc":  "Hits, then may poison AND confuse!",
       "speed": "slow",
       "damage": [10, 16],
