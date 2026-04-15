@@ -14,11 +14,10 @@
      "desc": "Price; Four hundred billion dollars. A slow, powerful beam that nearly garauntees a sleep status.",
      "speed": "slow",
      "damage": [100, 200],
-     "statuses": []
-     "status": "sleep",
-     "status": "flinch", 
-     "statusChance": 0.90,
-     "statusChance": 0.90]
+     "statuses": [
+      { "status": "sleep", "statusChance": 0.90 },
+      { "status": "flinch", "statusChance": 1.0 }
+     ]
    },
    {
      "id": "weave",
@@ -35,7 +34,7 @@
      "desc": "Price; estimately 1 trillion for the entire fleet. Advanced, humanoid robots that overwhelm the enemy.",
      "speed": "medium",
      "damage": [10, 110],
-     "status": "null",
+     "status": null,
      "statusChance": 0
    },
    {
