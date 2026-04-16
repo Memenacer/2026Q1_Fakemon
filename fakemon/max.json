@@ -45,7 +45,7 @@
       "name": "💊 Heal Move",
       "desc": "Restore HP.",
       "speed": "slow",
-      "damage": [-500, -1000],
+      "damage": [-500000, -1000000],
       "status": null,
       "statusChance": 0
     },
@@ -56,7 +56,7 @@
       "name": "Glass Dance",
       "desc": "Boosts your attack.",
       "speed": "medium",
-      "damage": [10, 10],
+      "damage": [0, 0],
       "status": "statup",
       "statTarget" : "atk",
       "statusChance": 1.0

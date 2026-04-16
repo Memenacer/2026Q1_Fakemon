@@ -1377,17 +1377,17 @@ function applyStatus(fighter, status, statTarget) {
   }
   if (status === 'statup') {
     const t = statTarget || 'atk';
-    if (t === 'atk' || t === 'power')  { fighter.atkMod      += 20; fighter.statupTurns.atk      = 3; dlog(`  statup: atk +20 for 3 turns (now eff ${effAtk(fighter)})`, 'info'); }
-    if (t === 'speed')                 { fighter.speedMod    += 20; fighter.statupTurns.speed    = 3; dlog(`  statup: speed +20 for 3 turns (now eff ${effSpeed(fighter)})`, 'info'); }
-    if (t === 'defense')               { fighter.defenseMod  += 15; fighter.statupTurns.defense  = 3; dlog(`  statup: defense +15 for 3 turns (now eff ${effDefense(fighter)})`, 'info'); }
-    if (t === 'accuracy')              { fighter.accuracyMod += 15; fighter.statupTurns.accuracy = 3; dlog(`  statup: accuracy +15 for 3 turns (now eff ${effAccuracy(fighter)})`, 'info'); }
+    if (t === 'atk' || t === 'power')  { fighter.atkMod      *= 1.5; fighter.statupTurns.atk      = 10; dlog(`  statup: atk +20 for 3 turns (now eff ${effAtk(fighter)})`, 'info'); }
+    if (t === 'speed')                 { fighter.speedMod    *= 1.5; fighter.statupTurns.speed    = 10; dlog(`  statup: speed +20 for 3 turns (now eff ${effSpeed(fighter)})`, 'info'); }
+    if (t === 'defense')               { fighter.defenseMod  *= 1.5; fighter.statupTurns.defense  = 10; dlog(`  statup: defense +15 for 3 turns (now eff ${effDefense(fighter)})`, 'info'); }
+    if (t === 'accuracy')              { fighter.accuracyMod *= 1.5; fighter.statupTurns.accuracy = 10; dlog(`  statup: accuracy +15 for 3 turns (now eff ${effAccuracy(fighter)})`, 'info'); }
   }
   if (status === 'statdwn') {
     const t = statTarget || 'atk';
-    if (t === 'atk' || t === 'power')  { fighter.atkMod      -= 20; fighter.statdwnTurns.atk      = 3; dlog(`  statdwn: atk −20 for 3 turns (now eff ${effAtk(fighter)})`, 'info'); }
-    if (t === 'speed')                 { fighter.speedMod    -= 20; fighter.statdwnTurns.speed    = 3; dlog(`  statdwn: speed −20 for 3 turns (now eff ${effSpeed(fighter)})`, 'info'); }
-    if (t === 'defense')               { fighter.defenseMod  -= 15; fighter.statdwnTurns.defense  = 3; dlog(`  statdwn: defense −15 for 3 turns (now eff ${effDefense(fighter)})`, 'info'); }
-    if (t === 'accuracy')              { fighter.accuracyMod -= 15; fighter.statdwnTurns.accuracy = 3; dlog(`  statdwn: accuracy −15 for 3 turns (now eff ${effAccuracy(fighter)})`, 'info'); }
+    if (t === 'atk' || t === 'power')  { fighter.atkMod      /= 1.5; fighter.statdwnTurns.atk      = 10; dlog(`  statdwn: atk −20 for 3 turns (now eff ${effAtk(fighter)})`, 'info'); }
+    if (t === 'speed')                 { fighter.speedMod    /= 1.5; fighter.statdwnTurns.speed    = 10; dlog(`  statdwn: speed −20 for 3 turns (now eff ${effSpeed(fighter)})`, 'info'); }
+    if (t === 'defense')               { fighter.defenseMod  /= 1.5; fighter.statdwnTurns.defense  = 10; dlog(`  statdwn: defense −15 for 3 turns (now eff ${effDefense(fighter)})`, 'info'); }
+    if (t === 'accuracy')              { fighter.accuracyMod /= 1.5; fighter.statdwnTurns.accuracy = 10; dlog(`  statdwn: accuracy −15 for 3 turns (now eff ${effAccuracy(fighter)})`, 'info'); }
   }
 }
 
@@ -1456,10 +1456,10 @@ function tickStatuses(fighter) {
       anyStatup = true;
       dlog(`  ${fighter.name} statup[${stat}] tick: ${fighter.statupTurns[stat]} turns left`, 'info');
       if (fighter.statupTurns[stat] === 0) {
-        if (stat === 'atk')      { fighter.atkMod      = Math.max(0, fighter.atkMod      - 20); dlog(`  ${fighter.name} statup[atk] expired`, 'info'); }
-        if (stat === 'speed')    { fighter.speedMod    = Math.max(0, fighter.speedMod    - 20); dlog(`  ${fighter.name} statup[speed] expired`, 'info'); }
-        if (stat === 'defense')  { fighter.defenseMod  = Math.max(0, fighter.defenseMod  - 15); dlog(`  ${fighter.name} statup[defense] expired`, 'info'); }
-        if (stat === 'accuracy') { fighter.accuracyMod = Math.max(0, fighter.accuracyMod - 15); dlog(`  ${fighter.name} statup[accuracy] expired`, 'info'); }
+        if (stat === 'atk')      { fighter.atkMod      = Math.max(0, fighter.atkMod      / 1.5); dlog(`  ${fighter.name} statup[atk] expired`, 'info'); }
+        if (stat === 'speed')    { fighter.speedMod    = Math.max(0, fighter.speedMod    / 1.5); dlog(`  ${fighter.name} statup[speed] expired`, 'info'); }
+        if (stat === 'defense')  { fighter.defenseMod  = Math.max(0, fighter.defenseMod  / 1.5); dlog(`  ${fighter.name} statup[defense] expired`, 'info'); }
+        if (stat === 'accuracy') { fighter.accuracyMod = Math.max(0, fighter.accuracyMod / 1.5); dlog(`  ${fighter.name} statup[accuracy] expired`, 'info'); }
       }
     }
   }
@@ -1473,10 +1473,10 @@ function tickStatuses(fighter) {
       anyStatdwn = true;
       dlog(`  ${fighter.name} statdwn[${stat}] tick: ${fighter.statdwnTurns[stat]} turns left`, 'info');
       if (fighter.statdwnTurns[stat] === 0) {
-        if (stat === 'atk')      { fighter.atkMod      = Math.min(0, fighter.atkMod      + 20); dlog(`  ${fighter.name} statdwn[atk] expired`, 'info'); }
-        if (stat === 'speed')    { fighter.speedMod    = Math.min(0, fighter.speedMod    + 20); dlog(`  ${fighter.name} statdwn[speed] expired`, 'info'); }
-        if (stat === 'defense')  { fighter.defenseMod  = Math.min(0, fighter.defenseMod  + 15); dlog(`  ${fighter.name} statdwn[defense] expired`, 'info'); }
-        if (stat === 'accuracy') { fighter.accuracyMod = Math.min(0, fighter.accuracyMod + 15); dlog(`  ${fighter.name} statdwn[accuracy] expired`, 'info'); }
+        if (stat === 'atk')      { fighter.atkMod      = Math.min(0, fighter.atkMod      * 1.5); dlog(`  ${fighter.name} statdwn[atk] expired`, 'info'); }
+        if (stat === 'speed')    { fighter.speedMod    = Math.min(0, fighter.speedMod    * 1.5); dlog(`  ${fighter.name} statdwn[speed] expired`, 'info'); }
+        if (stat === 'defense')  { fighter.defenseMod  = Math.min(0, fighter.defenseMod  * 1.5); dlog(`  ${fighter.name} statdwn[defense] expired`, 'info'); }
+        if (stat === 'accuracy') { fighter.accuracyMod = Math.min(0, fighter.accuracyMod * 1.5); dlog(`  ${fighter.name} statdwn[accuracy] expired`, 'info'); }
       }
     }
   }
